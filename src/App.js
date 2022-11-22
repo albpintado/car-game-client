@@ -1,21 +1,16 @@
-import logo from "./logo.svg";
+import React from "react";
+
 import "./App.css";
+import WebsocketHub from "./components/WebsocketHub";
+import Stomp from "./components/Stomp";
+
+const SOCKET_URL = "http://localhost:8080/ws";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <a
-          className="App-link"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LUNERA
-        </a>
-      </header>
-    </div>
+    <Stomp socketUrl={SOCKET_URL}>
+      <WebsocketHub />
+    </Stomp>
   );
 }
 
